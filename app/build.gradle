@@ -19,8 +19,21 @@ android {
     }
     sourceSets {
         main {
-            jni.srcDirs = []
+            jni.srcDirs = []    //设置禁止gradle生成Android.mk
+            jniLibs.srcDirs = ['src/main/jniLibs','libs']//设置目标的so存放路径
         }
+    }
+
+    task ndkBuild(type: Exec, description: 'Compile JNI source via NDK') {//设置新的so的生成目录
+        commandLine "E:\\NDK\\android-ndk-r10b\\ndk-build.cmd",
+                'NDK_PROJECT_PATH=build/intermediates/ndk',
+                'NDK_LIBS_OUT=src/main/jniLibs',
+                'APP_BUILD_SCRIPT=src/main/jni/Android.mk',
+                'NDK_APPLICATION_MK=src/main/jni/Application.mk'
+    }
+
+    tasks.withType(JavaCompile) {
+        compileTask -> compileTask.dependsOn 'ndkBuild'
     }
 }
 

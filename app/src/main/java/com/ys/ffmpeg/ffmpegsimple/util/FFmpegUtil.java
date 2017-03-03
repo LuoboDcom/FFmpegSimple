@@ -6,17 +6,19 @@ package com.ys.ffmpeg.ffmpegsimple.util;
  */
 public class FFmpegUtil {
 
-    public native String decode(String inputUrl,String outputUrl);
+    public native int decode(String inputUrl,String outputUrl);
+
+    public static native int playVideo(String url,Object surface);
 
     static{
-        System.loadLibrary("avcodec");
+        System.loadLibrary("avcodec-57");
 //        System.loadLibrary("avdevice");
-//        System.loadLibrary("avfilter");
-        System.loadLibrary("avformat");
-        System.loadLibrary("avutil");
+        System.loadLibrary("avfilter-6");
+        System.loadLibrary("avformat-57");
+        System.loadLibrary("avutil-55");
 //        System.loadLibrary("postproc");
-        System.loadLibrary("swresample");
-        System.loadLibrary("swscale");
+        System.loadLibrary("swresample-2");
+        System.loadLibrary("swscale-4");
         System.loadLibrary("ysffmpeg");
     }
 }

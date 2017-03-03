@@ -50,6 +50,6 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := ysffmpeg
 LOCAL_SRC_FILES := com_ys_ffmpeg_ffmpegsimple_util_FFmpegUtil.c
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
-LOCAL_LDLIBS := -llog -lz
+LOCAL_LDLIBS += -llog -lz -landroid
 LOCAL_SHARED_LIBRARIES := avcodec avfilter avformat avutil swresample swscale
 include $(BUILD_SHARED_LIBRARY)

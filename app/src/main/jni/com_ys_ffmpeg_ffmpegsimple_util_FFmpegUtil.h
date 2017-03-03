@@ -12,8 +12,16 @@ extern "C" {
  * Method:    decode
  * Signature: (Ljava/lang/String;Ljava/lang/String;)I
  */
-JNIEXPORT jstring JNICALL Java_com_ys_ffmpeg_ffmpegsimple_util_FFmpegUtil_decode
+JNIEXPORT jint JNICALL Java_com_ys_ffmpeg_ffmpegsimple_util_FFmpegUtil_decode
   (JNIEnv *, jobject, jstring, jstring);
+
+/*
+ * Class:     com_ys_ffmpeg_ffmpegsimple_util_FFmpegUtil
+ * Method:    playVideo
+ * Signature: (Ljava/lang/String;Ljava/lang/String;)I
+ */
+JNIEXPORT jint JNICALL Java_com_ys_ffmpeg_ffmpegsimple_util_FFmpegUtil_playVideo
+  (JNIEnv *, jobject, jstring, jobject);
 
 #ifdef __cplusplus
 }
